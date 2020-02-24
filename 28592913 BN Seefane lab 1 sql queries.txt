@@ -1,0 +1,427 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE Bidvest;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> USE Bidvest;
+Database changed
+mysql> CREATE TABLE BankBranch(
+    -> branch_name VARCHAR(20) NOT NULL,
+    -> branch_city VARCHAR(20) NOT NULL,
+    -> assets VARCHAR(20) NOT NULL,
+    -> PRIMARY KEY(branch_name)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TABLE Customer(
+    -> customer_name VARCHAR(20) NOT NULL,
+    -> customer_street VARCHAR(20) NOT NULL,
+    -> customer_city VARCHAR(20) NOT NULL,
+    -> PRIMARY KEY(customer_name)
+    -> );
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> CREATE TABLE CustomerAccount(
+    -> account_name VARCHAR(20) NOT NULL,
+    -> branch_name VARCHAR(20) NOT NULL,
+    -> balance double(10) NOT NULL,
+    ->
+    -> PRIMARY KEY(account_name)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') NOT NULL,
+
+PRIMARY KEY(account_name)
+)' at line 4
+mysql> CREATE TABLE CustomerAccount(
+    -> account_number VARCHAR(20) NOT NULL,
+    -> branch_name VARCHAR(20) NOT NULL,
+    -> balance double(10) NOT NULL,
+    -> PRIMARY KEY(account_number)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') NOT NULL,
+PRIMARY KEY(account_number)
+)' at line 4
+mysql> CREATE TABLE CustomerAccount(
+    -> account_number VARCHAR(20) NOT NULL,
+    -> branch-name VARCHAR(20) NOT NULL,
+    -> balance VARCHAR(15) NOT NULL,
+    -> PRIMARY KEY(account_number)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-name VARCHAR(20) NOT NULL,
+balance VARCHAR(15) NOT NULL,
+PRIMARY KEY(account_nu' at line 3
+mysql> CREATE TABLE CustomerAccount(
+    -> account_number CHAR(7) NOT NULL,
+    -> branch_name VARCHAR(20) NOT NULL,
+    -> balance VARCHAR(20) NOT NULL,
+    -> PRIMARY KEY(account_number)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CREATE TABLE Loan(
+    -> loan_number VARCHAR(20) NOT NULL,
+    -> branch_name VARCHAR(20) NOT NULL,
+    -> amount VARCHAR(20),
+    -> PRIMARY KEY(loan_number)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CREATE TABLE Depositer(
+    -> customer_name VARCHAR(20) NOT NULL,
+    -> account_number CHAR(7) NOT NULL,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+mysql> CREATE TABLE Depositer(
+    -> customer_name VARCHAR(20) NOT NULL,
+    -> account_number CHAR(7) NOT NULL);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> CREATE TABLE Borrower(
+    -> customer_name VARCHAR(20) NOT NULL,
+    -> loan_number VARCHAR(20) NOT NULL);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE Employee(
+    -> employee_name VARCHAR(20) NOT NULL,
+    -> branch_name VARCHAR(20) NOT NULL,
+    -> salary VARCHAR(20) NOT NULL,
+    -> PRIMARY KEY(employee_name)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_bidvest |
++-------------------+
+| bankbranch        |
+| borrower          |
+| customer          |
+| customeraccount   |
+| depositer         |
+| employee          |
+| loan              |
++-------------------+
+7 rows in set (0.03 sec)
+
+mysql> insert into CustomerAccount values('A-5324', 'Newtown', 500);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into CustomerAccount values('A-5624', 'Sunnyside', 400);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into CustomerAccount values('A-7794', 'Midrand', 900);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into CustomerAccount values('A-4467', 'Mabopane', 700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into CustomerAccount values('A-3546', 'Midrand', 750);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into CustomerAccount values('A-3453', 'Universitas', 700);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into CustomerAccount values('A-2542', 'Mamelodi', 350);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into BankBranch values('Midrand', 'Johannesburg', 7100000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into BankBranch values('Newtown', 'Johannesburg', 9000000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into BankBranch values('Mabopane', 'Pretoria', 400000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into BankBranch values('Belgravia', 'Kimberley', 3700000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into BankBranch values('Sunnyside', 'Pretoria', 1700000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into BankBranch values('Amazimtoti', 'Durban', 300000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into BankBranch values('Universitas', 'Bloemfontein', 2100000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into BankBranch values('Mamelodi', 'Pretoria', 8000000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customer values('Modise', 'Spring", 'George');
+    '>
+    '> ;
+    '> show tables;
+    '> ';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'George');
+
+;
+show tables;
+'' at line 1
+mysql> insert into Customer values('Modise', 'Spring', 'George');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Customer values('Brooks', 'Senator', 'Johannesburg');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customer values('Jooste', 'North', 'Kimberley');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Customer values('Lombard', 'Sand Hill', 'Nelspruit');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Customer values('Mokwena', 'Walnut', 'Port Elizabeth');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into depositor values('Johnson', 'A-5624');
+ERROR 1146 (42S02): Table 'bidvest.depositor' doesn't exist
+mysql> insert into depositer values('Johnson', 'A-5624');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositer values('Johnson', 'A-5624');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositer values('Johnson', 'A-7794');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositer values('Zwane', 'A-3546');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositer values('Lindsay', 'A-3453');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositer values('Smith', 'A-4467');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositer values('Dlamini', 'A-2542');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values('L-11', 'Mamelodi', 900);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into loan values('L-14', 'Newtown', 1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values('L-15', 'Sunnyside', 1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values('L-16', 'Sunnyside', 1300);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values('L-17', 'Newtown', 1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values('L-23', 'Universitas', 2000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values('L-93', 'Mabopane', 500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values('Modise', 'L-16');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values('Jooste', 'L-93');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values('Johnson', 'L-15');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values('Jackson', 'L-14');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values('Zwane', 'L-17');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into borrower values('Smith', 'L-11');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into borrower values('Smith', 'L-23');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values('Williams', 'L-17');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Modise', 'Sunnyside', 1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Brown', 'Sunnyside', 1300);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Gopal', 'Sunnyside', 5300);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employee values('Johnson', 'Newtown', 1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Loreena', 'Newtown', 1300);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Peterson', 'Newtown', 2500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Rao', 'Austin', 1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values('Sato', 'Austin', 1600);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM Customer_account;
+ERROR 1146 (42S02): Table 'bidvest.customer_account' doesn't exist
+mysql> SELECT * FROM Customeraccount;
++----------------+-------------+---------+
+| account_number | branch_name | balance |
++----------------+-------------+---------+
+| A-2542         | Mamelodi    | 350     |
+| A-3453         | Universitas | 700     |
+| A-3546         | Midrand     | 750     |
+| A-4467         | Mabopane    | 700     |
+| A-5324         | Newtown     | 500     |
+| A-5624         | Sunnyside   | 400     |
+| A-7794         | Midrand     | 900     |
++----------------+-------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM customeraccount WHERE balance < 700;
++----------------+-------------+---------+
+| account_number | branch_name | balance |
++----------------+-------------+---------+
+| A-2542         | Mamelodi    | 350     |
+| A-5324         | Newtown     | 500     |
+| A-5624         | Sunnyside   | 400     |
++----------------+-------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM customer WHERE customer_city = Johannesburg;
+ERROR 1054 (42S22): Unknown column 'Johannesburg' in 'where clause'
+mysql> SELECT * FROM customer WHERE customer_city = "Johannesburg";
++---------------+-----------------+---------------+
+| customer_name | customer_street | customer_city |
++---------------+-----------------+---------------+
+| Brooks        | Senator         | Johannesburg  |
++---------------+-----------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM employee WHERE salary > 1500 AND branch_city != "Newtown";
+ERROR 1054 (42S22): Unknown column 'branch_city' in 'where clause'
+mysql> SELECT * FROM employee WHERE salary > 1500 AND branch_name != "Newtown";
++---------------+-------------+--------+
+| employee_name | branch_name | salary |
++---------------+-------------+--------+
+| Gopal         | Sunnyside   | 5300   |
+| Sato          | Austin      | 1600   |
++---------------+-------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> avg_salary double NOT NULL,SELECT AVG(salary) FROM employee
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avg_salary double NOT NULL,SELECT AVG(salary) FROM employee' at line 1
+mysql> avg_salary double NOT NULL,
+    -> avg_salary = SELECT AVG(salary) FROM employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avg_salary double NOT NULL,
+avg_salary = SELECT AVG(salary) FROM employee' at line 1
+mysql> SELECT AVG(salary) 'avg_salary'FROM employee;
++------------+
+| avg_salary |
++------------+
+|     2062.5 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM BankBranch WHERE branch_city = "Sunnyside";
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM Customer WHERE customer_city = "Sunnyside";
+Empty set (0.00 sec)
+
+mysql> SELCT * FROM Customer;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELCT * FROM Customer' at line 1
+mysql> SELECT * FROM Customer;
++---------------+-----------------+----------------+
+| customer_name | customer_street | customer_city  |
++---------------+-----------------+----------------+
+| Brooks        | Senator         | Johannesburg   |
+| Jooste        | North           | Kimberley      |
+| Lombard       | Sand Hill       | Nelspruit      |
+| Modise        | Spring          | George         |
+| Mokwena       | Walnut          | Port Elizabeth |
++---------------+-----------------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM employees WHERE branch_name = "Sunnyside";
+ERROR 1146 (42S02): Table 'bidvest.employees' doesn't exist
+mysql> SELECT * FROM employee WHERE branch_name = "Sunnyside";
++---------------+-------------+--------+
+| employee_name | branch_name | salary |
++---------------+-------------+--------+
+| Brown         | Sunnyside   | 1300   |
+| Gopal         | Sunnyside   | 5300   |
+| Modise        | Sunnyside   | 1500   |
++---------------+-------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM borrower;
++---------------+-------------+
+| customer_name | loan_number |
++---------------+-------------+
+| Modise        | L-16        |
+| Jooste        | L-93        |
+| Johnson       | L-15        |
+| Jackson       | L-14        |
+| Zwane         | L-17        |
+| Smith         | L-11        |
+| Smith         | L-23        |
+| Williams      | L-17        |
++---------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM customeraccount WHERE balance > 900;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM customeraccount;
++----------------+-------------+---------+
+| account_number | branch_name | balance |
++----------------+-------------+---------+
+| A-2542         | Mamelodi    | 350     |
+| A-3453         | Universitas | 700     |
+| A-3546         | Midrand     | 750     |
+| A-4467         | Mabopane    | 700     |
+| A-5324         | Newtown     | 500     |
+| A-5624         | Sunnyside   | 400     |
+| A-7794         | Midrand     | 900     |
++----------------+-------------+---------+
+7 rows in set (0.00 sec)
+
+mysql> SHOW * FROM customeraccount WHERE branch_name = "Newtown" AND balance > 600;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM customeraccount WHERE branch_name = "Newtown" AND balance > 600' at line 1
+mysql> SELECT & FROM customeraccount WHERE branch_name = "Newtown" AND balance > 600;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '& FROM customeraccount WHERE branch_name = "Newtown" AND balance > 600' at line 1
+mysql> SELECT * FROM customeraccount WHERE branch_name = "Newtown" AND balance > 600;
+Empty set (0.00 sec)
+
+mysql> SELECT branch_name, assets FROM BankBranch;
++-------------+---------+
+| branch_name | assets  |
++-------------+---------+
+| Amazimtoti  | 300000  |
+| Belgravia   | 3700000 |
+| Mabopane    | 400000  |
+| Mamelodi    | 8000000 |
+| Midrand     | 7100000 |
+| Newtown     | 9000000 |
+| Sunnyside   | 1700000 |
+| Universitas | 2100000 |
++-------------+---------+
+8 rows in set (0.00 sec)
+
+mysql>
